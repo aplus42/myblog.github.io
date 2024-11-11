@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-11-11T12:37:53.579Z</updated>
+  <updated>2024-11-11T12:54:39.675Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>博客搭建：hexo使用next主题新增RSS</title>
     <link href="http://example.com/2024/11/11/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%9Ahexo%E4%BD%BF%E7%94%A8next%E4%B8%BB%E9%A2%98%E6%96%B0%E5%A2%9ERSS/"/>
     <id>http://example.com/2024/11/11/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%9Ahexo%E4%BD%BF%E7%94%A8next%E4%B8%BB%E9%A2%98%E6%96%B0%E5%A2%9ERSS/</id>
     <published>2024-11-11T12:37:25.644Z</published>
-    <updated>2024-11-11T12:37:53.579Z</updated>
+    <updated>2024-11-11T12:54:39.675Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>在next下的_config.yml配置中新增</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sidebar_rss: </span><br><span class="line">text: RSS </span><br><span class="line">icon: fa fa-rss </span><br><span class="line">color: burlywood </span><br><span class="line">link: atom.xml</span><br></pre></td></tr></table></figure></li><li><p>找到next&#x2F;layout&#x2F;_partials&#x2F;sidebar&#x2F;site-overview.swig文件，在社交判断板块下新增以下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if theme.sidebar_rss %&#125;</span><br><span class="line">  &lt;div class=&quot;&quot; &gt;</span><br><span class="line">  &lt;a target=&quot;_blank&quot; class=&quot;social-link&quot; href=&quot;&#123;&#123; url_for(theme.sidebar_rss.link) &#125;&#125;&quot; style=&quot;color: &#123;&#123; theme.sidebar_rss.color &#125;&#125;;&quot;&gt;</span><br><span class="line">      &lt;span class=&quot;icon&quot;&gt;</span><br><span class="line">        &lt;i class=&quot;&#123;&#123; theme.sidebar_rss.icon &#125;&#125;&quot;&gt;&lt;/i&gt;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">      &lt;span class=&quot;label&quot;&gt;&#123;&#123; theme.sidebar_rss.text &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure></li><li><p>在博客目录下安装<code>npm install hexo-generator-feed --save</code>，编译时就会生成atom.xml文件。</p></li></ol>]]></content>
     
@@ -41,11 +41,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>follow</title>
     <link href="http://example.com/2024/11/11/follow/"/>
     <id>http://example.com/2024/11/11/follow/</id>
     <published>2024-11-11T08:59:41.085Z</published>
-    <updated>2024-11-11T12:37:53.579Z</updated>
+    <updated>2024-11-11T12:54:39.676Z</updated>
     
     <content type="html"><![CDATA[<p>This message is used to verify that this feed (feedId:78721582607268864) belongs to me (userId:43266652391609344). Join me in enjoying the next generation information browser <a href="https://follow.is/">https://follow.is</a>.</p>]]></content>
     
