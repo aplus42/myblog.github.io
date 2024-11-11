@@ -314,27 +314,50 @@ NexT.utils = {
     });
   },
 
-  registerSidebarTOC() {
-    this.sections = [...document.querySelectorAll('.post-toc:not(.placeholder-toc) li a.nav-link')].map(element => {
-      const target = document.getElementById(decodeURI(element.getAttribute('href')).replace('#', ''));
+  // registerSidebarTOC() {
+  //   this.sections = [...document.querySelectorAll('.post-toc:not(.placeholder-toc) li a.nav-link')].map(element => {
+  //     const target = document.getElementById(decodeURI(element.getAttribute('href')).replace('#', ''));
+  //     // TOC item animation navigate.
+  //     element.addEventListener('click', event => {
+  //       event.preventDefault();
+  //       const offset = target.getBoundingClientRect().top + window.scrollY;
+  //       window.anime({
+  //         targets  : document.scrollingElement,
+  //         duration : 500,
+  //         easing   : 'linear',
+  //         scrollTop: offset,
+  //         complete : () => {
+  //           history.pushState(null, document.title, element.href);
+  //         }
+  //       });
+  //     });
+  //     return target;
+  //   });
+  registerSidebarTOC: function() {
+    const navItems = document.querySelectorAll('.post-toc li');
+    const sections = [...navItems].map(element => {
+      var link = element.querySelector('a.nav-link');
+      // 修复侧边栏 标题点击不跳转问题
+      var target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
       // TOC item animation navigate.
-      element.addEventListener('click', event => {
+      link.addEventListener('click', event => {
         event.preventDefault();
-        const offset = target.getBoundingClientRect().top + window.scrollY;
+        //var target = document.getElementById(event.currentTarget.getAttribute('href').replace('#', ''));
+        var offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
           targets  : document.scrollingElement,
           duration : 500,
           easing   : 'linear',
-          scrollTop: offset,
-          complete : () => {
-            history.pushState(null, document.title, element.href);
-          }
+          scrollTop: offset + 10
         });
       });
+      //return document.getElementById(link.getAttribute('href').replace('#', ''));
       return target;
     });
     this.updateActiveNav();
   },
+
+
 
   registerPostReward() {
     const button = document.querySelector('.reward-container button');
